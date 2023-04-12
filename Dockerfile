@@ -17,3 +17,4 @@ COPY --from=builder /app/build /usr/share/nginx/html
 #and the folder
 #and the destination
 #nginix will start automatically when run the container
+#e aisehi extra comment karna padta hai
