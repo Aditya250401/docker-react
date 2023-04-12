@@ -1,0 +1,22 @@
+#give the superuser permissions because we are going to use docker
+
+sudo: required
+  services:
+    - docker 
+    #travis cli should know that we need docker preinstalled 
+    #in services basically we mention apne ko kya kya chahiye
+  before_install:
+  #these are the series of step we want to be done before our test
+  #and we want the setup ready before running the test
+   - docker build -t aditya250401/docker-react -f Dockerfile.dev .
+   #we cant get the id of the image again and again so we need to set the tag
+
+  script:
+  #script me ham batate hai ki jo setup bana hua hai usko kaise chalana hai
+  #travis iska return status code dekte rehta hai nd agr "0" ke alaawa aur kuch milta hai to 
+  #travis wapas run karta hai
+  #....a tiny catch is there that travis succes ya failure pe exit karjat hai 
+  #and jo npm run hai wo to test khaatm hone par ek menu dikhata tha
+  #to solve that we do the following
+    - docker run -e CI=true aditya250401/docker-react npm run test
+
