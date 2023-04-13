@@ -12,6 +12,7 @@ RUN npm run build
 #when we specify the new from it understands to finish the prev phase
 #and start the new phase
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 #we have to state the image from which we have to copy the file
 #and the folder
