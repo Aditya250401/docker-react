@@ -1,4 +1,5 @@
 sudo: required
+language: generic
 
 services:
   - docker
@@ -17,6 +18,6 @@ deploy:
   bucket_name: 'elasticbeanstalk-eu-north-1-334584861875'
   bucket_path: 'docker-react'
   on:
-    branch: main
+    branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: '$AWS_ACCESS_KEY'
